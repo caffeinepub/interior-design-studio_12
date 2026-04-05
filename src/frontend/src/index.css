@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Warm ivory/cream page background: #F3EBDD -> oklch(93.8% 0.025 74) */
+    --background: 0.938 0.025 74;
+    /* Near-black/brown charcoal text: #2B2420 -> oklch(22% 0.022 42) */
+    --foreground: 0.22 0.022 42;
+
+    /* Card: white-ish cream */
+    --card: 0.98 0.008 74;
+    --card-foreground: 0.22 0.022 42;
+
+    /* Popover */
+    --popover: 0.98 0.008 74;
+    --popover-foreground: 0.22 0.022 42;
+
+    /* Primary = deep forest green: #1E3A2D -> oklch(28% 0.07 155) */
+    --primary: 0.28 0.07 155;
+    --primary-foreground: 0.97 0.005 74;
+
+    /* Secondary = warm gold/bronze: #B08A4A -> oklch(63% 0.095 68) */
+    --secondary: 0.63 0.095 68;
+    --secondary-foreground: 0.98 0.005 74;
+
+    /* Muted = light cream/tan */
+    --muted: 0.93 0.018 74;
+    --muted-foreground: 0.52 0.03 55;
+
+    /* Accent = green (same as primary) */
+    --accent: 0.28 0.07 155;
+    --accent-foreground: 0.97 0.005 74;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border: very light tan #D9CBB7 -> oklch(84% 0.025 72) */
+    --border: 0.84 0.025 72;
+    /* Input field border */
+    --input: 0.84 0.025 72;
+    /* Ring */
+    --ring: 0.28 0.07 155;
+
+    /* Chart colors */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.938 0.025 74;
+    --sidebar-foreground: 0.22 0.022 42;
+    --sidebar-primary: 0.28 0.07 155;
+    --sidebar-primary-foreground: 0.97 0.005 74;
+    --sidebar-accent: 0.93 0.018 74;
+    --sidebar-accent-foreground: 0.22 0.022 42;
+    --sidebar-border: 0.84 0.025 72;
+    --sidebar-ring: 0.28 0.07 155;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", "General Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+  .font-sans-ui {
+    font-family: "Lato", sans-serif;
+  }
+
+  .text-shadow-hero {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+  .portfolio-item:hover img {
+    transform: scale(1.06);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: oklch(0.28 0.07 155);
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
